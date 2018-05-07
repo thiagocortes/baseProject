@@ -1,0 +1,300 @@
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body ng-controller="professorController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="../../resources/bootstrap/img/background.jpg" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                        	  <img alt="Foto" id="imagemPerfil" src="{{professor.nome}}" class="avatar border-white" border="0" />
+							  <input type="file" style="margin: auto" id="file" onchange="javascript:visualizarImg();"></input>
+                              <h4 class="title">{{professor.nome}}</h4>
+                              <div ng-hide="professor.id"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Disciplinas Atibuidas</h4>
+                    </div>
+                    <div class="content">
+                        <ul class="list-unstyled team-members">
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="../../resources/bootstrap/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        Português
+                                        <br />
+                                        <span class="text-success"><small>Ministrando</small></span>
+                                    </div>
+
+                                    <div class="col-xs-3 text-right">
+                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa ti-search"></i></btn>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="../../resources/bootstrap/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        Matemática
+                                        <br />
+                                        <span class="text-success"><small>Ministrando</small></span>
+                                    </div>
+
+                                    <div class="col-xs-3 text-right">
+                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa ti-search"></i></btn>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">{{subtitulo}}</h4>
+                    </div>
+                    <div class="content">
+                        <form id="formprofessor">
+                        	<h4>Dados Pessoais</h4>
+							<hr>
+							<div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input type="text" id="nome" name="nome" ng-model="professor.nome" class="form-control border-input">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" ng-model="professor.email" class="form-control border-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                            	<div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nascimento</label>
+                                        <input type="date" ng-model="professor.dataNascimento" class="form-control border-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>CPF</label>
+                                        <input type="text" ng-model="professor.cpf" id="cpf" class="cpf form-control border-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>RG</label>
+                                        <input type="text" ng-model="professor.rg" class="form-control border-input">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                            	<div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Naturalidade</label>
+                                        <input type="text" ng-model="professor.naturalidade" class="form-control border-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nacionalidade</label>
+                                        <input type="text" ng-model="professor.nacionalidade" class="form-control border-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Sexo</label>
+										<select ng-model="professor.sexo" id="selectSexo" class="form-control"> 
+										  <option value="">Selecione</option> 
+										  <option ng-repeat="sexo in sexos" value="{{sexo}}">
+										  	{{sexo}}
+										  </option>
+										</select>
+                                    </div>
+                                </div>
+                            </div>
+							  <div class="panel panel-primary">
+							    <div class="panel-body">
+							      <h4 class="text-on-pannel text-primary">Endereço</h4>
+							      <div class="row">
+										<div class="col-md-4">
+		                                    <div class="form-group">
+		                                        <label>CEP</label>
+		                                        <input type="text" class="cep form-control border-input" ng-model="endereco.cep">
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-8">
+		                                    <div class="form-group">
+		                                        <label>Observação</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.observacao">
+		                                    </div>
+		                                </div>
+								   </div>
+		                            <div class="row">
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label>Logradouro</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.logradouro">
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-2">
+		                                    <div class="form-group">
+		                                        <label>Número</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.numero">
+		                                    </div>
+		                                </div>
+		                   				<div class="col-md-4">
+		                                    <div class="form-group">
+		                                        <label>Bairro</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.bairro" />
+		                                    </div>
+		                                </div>
+		                            </div>
+
+		                            <div class="row">
+		                                <div class="col-md-4">
+		                                    <div class="form-group">
+		                                        <label>Cidade</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.cidade" />
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-3">
+		                                    <div class="form-group">
+		                                        <label>Estado</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.estado" />
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-3">
+		                                    <div class="form-group">
+		                                        <label>Pais</label>
+		                                        <input type="text" class="form-control border-input" ng-model="endereco.pais" />
+		                                    </div>
+		                                </div>
+		                                <div class="form-group">
+		                                	<button type="button" class="btn btn-info btn-fill btn-wd bt-acao-add" ng-click="adicionarEnderecos();">Adicionar</button>
+		                                </div>
+		                            		
+		                            </div>
+		                            <div class="content table-responsive table-full-width">
+							          <table class="table table-bordered">
+							              <thead class="thead-dark">
+							              	  <th scope="col">CEP</th>
+							                  <th scope="col">Logradouro</th>
+							              	  <th scope="col">Bairro</th>
+							              	  <th scope="col">Cidade</th>
+							              	  <th scope="col">Estado</th>
+							              	  <th scope="col">País</th>
+							              	  <th scope="col">Ação</th>
+							              </thead>
+							              <tbody ng-repeat="endereco in professor.enderecos">
+							                  <tr>
+							                  	<td scope="row">{{endereco.cep}}</td>
+							                  	<td>{{endereco.logradouro}} / {{endereco.numero}}</td>
+							                  	<td>{{endereco.bairro}}</td>
+							                  	<td>{{endereco.cidade}}</td>
+							                  	<td>{{endereco.estado}}</td>
+							                  	<td>{{endereco.pais}}</td>
+							                  	<td>
+							                  		<a href ng-click="excluirEndereco($index);" title="Excluir"><div class="btn btn-danger btn-icon"><span class="fa ti-trash" /></div></a>
+							                  	</td>
+							                  </tr>
+							              </tbody>
+							          </table>
+							      </div>
+							    </div>
+							  </div>
+							  
+							  <div class="panel panel-primary">
+							    <div class="panel-body">
+							      <h4 class="text-on-pannel text-primary">Telefones</h4>
+							      
+							      <div class="row">
+	                				<div class="col-md-6">
+	                                    <div class="form-group">
+	                                        <label>Nome</label>
+	                                        <input type="text" class="form-control border-input" ng-model="telefone.nome" />
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-1">
+	                                    <div class="form-group">
+	                                        <label>DDD</label>
+	                                        <input type="text" class="ddd form-control border-input" ng-model="telefone.ddd" />
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-3">
+	                                    <div class="form-group">
+	                                        <label>Número</label>
+	                                        <input type="text" class="telefone form-control border-input" ng-model="telefone.numero" />
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                	<button type="button" class="btn btn-info btn-fill btn-wd bt-acao-add" ng-click="adicionarTelefones();">Adicionar</button>
+	                                </div>
+	                             </div>
+	                             
+	                             <div class="content table-responsive table-full-width">
+							          <table class="table table-bordered">
+							              <thead class="thead-dark">
+							              	  <th scope="col">Nome</th>
+							                  <th scope="col">Numero</th>
+							                  <th scope="col">Ação</th>
+							              </thead>
+							              <tbody ng-repeat="telefone in professor.telefones">
+							                  <tr>
+							                  	<td scope="row">{{telefone.nome}}</td>
+							                  	<td>{{telefone.numero}}</td>
+							                  	<td>
+							                  		<a ng-click="excluirTelefone($index);" title="Excluir"><div class="btn btn-danger btn-icon"><span class="fa ti-trash" /></div></a>
+							                  	</td>
+							                  </tr>
+							              </tbody>
+							          </table>
+							      </div>
+							     </div>
+					          </div>
+							<div class="text-center">
+                                <button type="submit" class="btn btn-info btn-fill btn-wd" ng-click="salvar();">Salvar</button>
+                                <button type="submit" class="btn btn-danger btn-fill btn-wd" ng-click="cancelar();">Cancelar</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </body>
+  <script type="text/javascript">
+ 	$('.cpf').mask('999.999.999-99');
+ 	$('.telefone').mask('99999999');
+ 	$('.ddd').mask('99');
+ 	$('.cep').mask('99999-999');
+ </script>	
+</html>

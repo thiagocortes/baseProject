@@ -1,0 +1,157 @@
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="../resources/bootstrap/img/background.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                  <img class="avatar border-white" src="../resources/bootstrap/img/faces/face-2.jpg" alt="..."/>
+                                  <h4 class="title">{{usuario.nome}}<br />
+                                  </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Turmas Matriculadas</h4>
+                            </div>
+                            <div class="content">
+                                <ul class="list-unstyled team-members">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <div class="avatar">
+                                                            <img src="../resources/bootstrap/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        Turma A
+                                                        <br />
+                                                        <span class="text-muted"><small>Cancelada</small></span>
+                                                    </div>
+
+                                                    <div class="col-xs-3 text-right">
+                                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa ti-search"></i></btn>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <div class="avatar">
+                                                            <img src="../resources/bootstrap/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        Turma B
+                                                        <br />
+                                                        <span class="text-success"><small>Matriculado</small></span>
+                                                    </div>
+
+                                                    <div class="col-xs-3 text-right">
+                                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa ti-search"></i></btn>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Editar</h4>
+                            </div>
+                            <div class="content">
+                                <form id="formUsuario">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Matricula</label>
+                                                <input type="text" ng-model="usuario.matricula" class="form-control border-input" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="text" ng-model="usuario.usuario" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email</label>
+                                                <input type="email" ng-model="usuario.email" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nome</label>
+                                                <input type="text" ng-model="usuario.nome" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                    	<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>CEP</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Logradouro</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Número</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                        				<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Bairro</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <input type="text" class="form-control border-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd" ng-click="salvarUsuario();">Salvar</button>
+                                        <button type="submit" class="btn btn-danger btn-fill btn-wd" ng-click="cancelar();">Cancelar</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

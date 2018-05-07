@@ -1,0 +1,67 @@
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<div class="card" >
+		<div class="header">
+            <h4 class="title">Buscar</h4>
+        </div>
+        <div class="content" ng-controller="usuarioController">
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Matricula</label>
+                            <input type="text" ng-model="usuario.matricula" class="form-control border-input">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" ng-model="usuario.email" class="form-control border-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" ng-model="usuario.nome" class="form-control border-input">
+                        </div>
+                    </div>
+                </div>
+				<div class="row">
+				    <div class="bt-acao">
+				    	<button type="button" class="btn btn-warning btn-fill btn-wd" ng-click="buscarUsuarios();"> Pesquisar </button>
+				      	<button type="button" class="btn btn-info btn-fill btn-wd" ng-click="openNew();"> Novo </button>
+				    </div>
+				</div>
+            </form>
+        </div>
+	</div>
+	 <div class="card" >
+
+		<div class="content table-responsive table-full-width" ng-controller="usuarioController" ng-init="listarUsuarios();">
+	          <table class="table">
+	              <thead class="thead-dark">
+	              	  <th scope="col">Matricula</th>
+	                  <th scope="col">Nome</th>
+	              	  <th scope="col">E-mail</th>
+	              	  <th scope="col">Ação</th>
+	              </thead>
+	              <tbody ng-repeat="usuario in usuarios">
+	                  <tr>
+	                  	<td scope="row">{{usuario.id}}</td>
+	                  	<td>{{usuario.nome}}</td>
+	                  	<td>{{usuario.email}}</td>
+	                  	<td><a href ng-click="editarUsuario(usuario.id);">Editar</a> | <a href ng-click="deletarUsuario(usuario.id);">Excluir</a></td>
+	                  </tr>
+	              </tbody>
+	          </table>
+	      </div>
+      </div>
+</body>
+</html>
+

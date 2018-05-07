@@ -1,0 +1,71 @@
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<div class="card" >
+		<div class="header">
+            <h4 class="title">Buscar</h4>
+        </div>
+        <div class="content">
+            <form>
+                <div class="row">
+ 					<div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" ng-model="nivel.nome" class="form-control border-input">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                       <div class="form-group">
+                           <label>Situação</label>
+							<select ng-model="nivel.situacao" id="selectSituacao" class="form-control"> 
+							  <option value="">Selecione</option> 
+							  <option ng-repeat="situacao in situacoes" value="{{situacao}}">
+							  	{{situacao}}
+							  </option>
+							</select>
+                        </div>
+                    </div>
+                </div>
+				<div class="row">
+				    <div class="bt-acao">
+				    	<button type="button" class="btn btn-warning btn-fill btn-wd" ng-click="buscar();"> Pesquisar </button>
+				      	<button type="button" class="btn btn-info btn-fill btn-wd" ng-click="criar();"> Novo </button>
+				    </div>
+				</div>
+            </form>
+        </div>
+	</div>
+	 <div class="card" ng-controller="nivelController" ng-init="listar();">
+
+		<div class="content table-responsive table-full-width">
+	          <table class="table">
+	              <thead class="thead-dark">
+	                  <th scope="col">Nome</th>
+	              	  <th scope="col">Descrição</th>
+	              	  <th scope="col">Situação</th>
+	              	  <th scope="col">Curso</th>
+	              	  <th scope="col">Valor</th>
+	              	  <th scope="col">Ação</th>
+	              </thead>
+	              <tbody ng-repeat="nivel in niveis">
+	                  <tr>
+	                  	<td>{{nivel.nome}}</td>
+	                  	<td>{{nivel.descricao}}</td>
+	                  	<td>{{nivel.situacao}}</td>
+	                  	<td>{{nivel.curso.nome}}</td>
+	                  	<td>{{nivel.valor | currency:'R$ ':2}}</td>
+	                  	<td>
+	                  		<a href ng-click="editar(nivel.id);" title="Editar"><div class="btn btn-success btn-icon"><span class="fa ti-pencil" /></div></a> 
+	                  		<a href ng-click="deletar(nivel.id);" title="Excluir"><div class="btn btn-danger btn-icon"><span class="fa ti-trash" /></div></a>
+	                  	</td>
+	                  </tr>
+	              </tbody>
+	          </table>
+	      </div>
+      </div>
+</body>
+</html>
+

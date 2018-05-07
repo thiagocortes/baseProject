@@ -1,0 +1,41 @@
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body ng-controller="horariosTurnoController">
+
+        <div class="content">
+            <form>
+				<div class="row">
+				    <div class="bt-acao">
+				      	<button type="button" class="btn btn-info btn-fill btn-wd" ng-click="criar();"> Novo </button>
+				    </div>
+				</div>
+            </form>
+        </div>
+	 <div class="card">
+
+		<div class="content table-responsive table-full-width" ng-init="listar();">
+	          <table class="table">
+	              <thead class="thead-dark">
+	                  <th scope="col">Horário</th>
+	              	  <th scope="col">Hora Inicial</th>
+	              	  <th scope="col">Hora Final</th>
+	              	  <th scope="col">Ação</th>
+	              </thead>
+	              <tbody ng-repeat="horariosTurno in horariosTurnos">
+	                  <tr>
+	                  	<td>{{horariosTurno.horario}} Horário</td>
+	                  	<td>{{horariosTurno.horaInicial | date:'MM/dd/yyyy HH:mm'}}</td>
+	                  	<td>{{horariosTurno.horaFinal | date:"HH:mm"}}</td>
+	                  	<td>
+	                  		<a href ng-click="editar(horariosTurno.id);" title="Editar"><div class="btn btn-success btn-icon"><span class="fa ti-pencil" /></div></a> 
+	                  		<a href ng-click="deletar(horariosTurno.id);" title="Excluir"><div class="btn btn-danger btn-icon"><span class="fa ti-trash" /></div></a>
+	                  	</td>
+	                  </tr>
+	              </tbody>
+	          </table>
+	      </div>
+      </div>
+</body>
+</html>

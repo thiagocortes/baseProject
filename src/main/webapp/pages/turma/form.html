@@ -1,0 +1,89 @@
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body ng-controller="turmaController" ng-init="init();">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">{{subtitulo}}</h4>
+                    </div>
+                    <div class="content">
+                        <form id="formturma">
+                        	<h4>Dados da Turma</h4>
+							<hr>
+							<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input type="text" id="nome" name="nome" ng-model="turma.nome" class="form-control border-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Sigla</label>
+                                        <input type="text" id="sigla" name="sigla" ng-model="turma.sigla" class="form-control border-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Situação</label>
+										<select ng-model="turma.situacao" id="selectSituacao" class="form-control"> 
+										  <option value="">Selecione</option> 
+										  <option ng-repeat="situacao in situacoes" value="{{situacao}}">
+										  	{{situacao}}
+										  </option>
+										</select>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Máximo de Alunos</label>
+                                        <input type="number" id="maxAluno" name="maxAluno" ng-model="turma.maxAluno" class="form-control border-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Nível</label>
+										<select ng-model="turma.nivel" id="selectNivel" class="form-control"> 
+										  <option value="">Selecione</option> 
+										  <option ng-repeat="item in niveis" value="{{item}}">
+										  	{{item.nome}}
+										  </option>
+										</select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Professor</label>
+										<select ng-model="turma.professor" id="selectProfessor" class="form-control"> 
+										  <option value="">Selecione</option> 
+										  <option ng-repeat="item in professores" value="{{item}}">
+										  	{{item.nome}}
+										  </option>
+										</select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+							<div class="text-center">
+                                <button type="submit" class="btn btn-info btn-fill btn-wd" ng-click="salvar();">Salvar</button>
+                                <button type="submit" class="btn btn-danger btn-fill btn-wd" ng-click="cancelar();">Cancelar</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </body>
+</html>
